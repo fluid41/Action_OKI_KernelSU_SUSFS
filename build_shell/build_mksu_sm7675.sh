@@ -83,7 +83,14 @@ curl -o 002-zstd.patch https://raw.githubusercontent.com/ferstar/kernel_manifest
 patch -p1 < 002-zstd.patch || true
 
 cd "$KERNEL_WORKSPACE" || exit 1
-rm common/android/abi_gki_protected_exports_*         
+
+# 这一步用于修复lz4与zstd 所导致的WiFi 5G失效等一系列问题
+rm common/android/abi_gki_protected_exports_*     
+
+echo "CONFIG_TMPFS_XATTR=y" >> "$KERNEL_WORKSPACE/common/arch/arm64/configs/gki_defconfig"
+echo "CONFIG_TMPFS_POSIX_ACL=y" >> "$KERNEL_WORKSPACE/common/arch/arm64/configs/gki_defconfig"
+
+sed -i 's/check_defconfig//' "$KERNEL_WORKSPACE/common/build.config.gki"
 
 export OPLUS_FEATURES="OPLUS_FEATURE_BSP_DRV_INJECT_TEST=1"
 # 构建内核
@@ -96,10 +103,6 @@ cd "$OLD_DIR" || exit 1
 # 获取内核版本
 KERNEL_VERSION=$(cat "$KERNEL_WORKSPACE/out/msm-kernel-${CPUD}-gki/dist/version.txt" 2>/dev/null || echo "6.1")
 
-# 制作 AnyKernel3
-git clone https://github.com/Kernel-SU/AnyKernel3 --depth=1
-rm -rf ./AnyKernel3/.git
-cp "$KERNEL_WORKSPACE/out/msm-kernel-${CPUD}-gki/dist/Image" ./AnyKernel3/
 
 # 输出变量到 GitHub Actions
 echo "kernel_version=$KERNEL_VERSION" >> "$GITHUB_OUTPUT"
