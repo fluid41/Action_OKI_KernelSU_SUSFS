@@ -1,6 +1,6 @@
 # Action_OKI_KernelSU_SUSFS
 
-使用Github Action自动编译一加KernelSU内核并手动发布稳定构建
+使用Github Action自动编译一加多种KernelSU分支内核并手动发布稳定构建
 
 mksu和ksu-next仓库已合并，后续只更新此仓库
 
