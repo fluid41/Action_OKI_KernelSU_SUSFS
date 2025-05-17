@@ -104,9 +104,9 @@ cd "$OLD_DIR" || exit 1
 KERNEL_VERSION=$(cat "$KERNEL_WORKSPACE/out/msm-kernel-${CPUD}-gki/dist/version.txt" 2>/dev/null || echo "6.1")
 
 # 制作 AnyKernel3
-git clone https://github.com/Kernel-SU/AnyKernel3 --depth=1
-rm -rf ./AnyKernel3/.git
-cp "$KERNEL_WORKSPACE/out/msm-kernel-${CPUD}-gki/dist/Image" ./AnyKernel3/
+#git clone https://github.com/Kernel-SU/AnyKernel3 --depth=1
+#rm -rf ./AnyKernel3/.git
+#cp "$KERNEL_WORKSPACE/out/msm-kernel-${CPUD}-gki/dist/Image" ./AnyKernel3/
 
 # 输出变量到 GitHub Actions
 echo "kernel_version=$KERNEL_VERSION" >> "$GITHUB_OUTPUT"
