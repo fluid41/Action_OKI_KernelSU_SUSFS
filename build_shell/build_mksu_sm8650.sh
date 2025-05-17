@@ -21,7 +21,7 @@ esac
 # 设置版本变量
 ANDROID_VERSION="android14"
 KERNEL_VERSION="6.1"
-SUSFS_VERSION="1.5.5"
+SUSFS_VERSION="1.5.7"
 
 # 设置工作目录
 OLD_DIR="$(pwd)"
