@@ -85,11 +85,14 @@ jobs:
                                 ${{ github.event.inputs.enable_polly }} \
                                 ${{ github.event.inputs.enable_o3 }} 
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@main
+      - name: Make AnyKernel3
+        run: |
+         git clone https://github.com/Kernel-SU/AnyKernel3 --depth=1
+         rm -rf ./AnyKernel3/.git
+         cp kernel_workspace/kernel_platform/out/msm-kernel-pineapple-gki/dist/Image ./AnyKernel3/
+
+      - name: Upload AnyKernel3
+        uses: actions/upload-artifact@v4
         with:
-          name: "AnyKernel3-${{ steps.map_manifest.outputs.mapped_manifest }}-${{ steps.build.outputs.kernel_version }}-MKSU-${{ steps.build.outputs.ksu_version }}-SUSFS-${{ steps.build.outputs.susfs_version }}"
-          path: |
-              kernel_workspace/AnyKernel3
-              kernel_directory_structure.txt
-              compression-level: 9
+         name: AnyKernel3-${{ steps.map_manifest.outputs.mapped_manifest }}-${{ steps.build.outputs.kernel_version }}-MKSU-${{ steps.build.outputs.ksu_version }}-SUSFS-${{ steps.build.outputs.susfs_version }}
+         path: ./AnyKernel3/*
