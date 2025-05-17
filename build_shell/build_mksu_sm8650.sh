@@ -9,7 +9,7 @@ ENABLE_O3="$4"
 
 # 根据 manifest_file 映射 CPUD
 case "$MANIFEST_FILE" in
-    "oneplus12_v" | "oneplus_13r" | "oneplus_ace3_pro_v" | "oneplus_ace5" | "oneplus_pad2_v")
+    "oneplus12_v" | "oneplus_13r" | "oneplus_ace3_pro" | "oneplus_ace3_pro_v" | "oneplus_ace5" | "oneplus_pad2_v")
         CPUD="pineapple"
         ;;
     *)
@@ -83,7 +83,14 @@ curl -o 002-zstd.patch https://raw.githubusercontent.com/ferstar/kernel_manifest
 patch -p1 < 002-zstd.patch || true
 
 cd "$KERNEL_WORKSPACE" || exit 1
-rm common/android/abi_gki_protected_exports_*         
+
+# 这一步用于修复lz4与zstd 所导致的WiFi 5G失效等一系列问题
+rm common/android/abi_gki_protected_exports_*     
+
+echo "CONFIG_TMPFS_XATTR=y" >> "$KERNEL_WORKSPACE/common/arch/arm64/configs/gki_defconfig"
+echo "CONFIG_TMPFS_POSIX_ACL=y" >> "$KERNEL_WORKSPACE/common/arch/arm64/configs/gki_defconfig"
+
+sed -i 's/check_defconfig//' "$KERNEL_WORKSPACE/common/build.config.gki"
 
 export OPLUS_FEATURES="OPLUS_FEATURE_BSP_DRV_INJECT_TEST=1"
 # 构建内核
