@@ -1,18 +1,22 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+title: 使用GA编译一加KSU分支内核并发布构建
 
 hero:
   name: "Oneplus Kernel Image"
   text: "使用GA编译一加KSU分支内核并发布构建"
-  tagline: 
+  tagline: ""
+  image:
+    src: /logo.png
+    alt: Oneplus Kernel Image
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 开始了解
+      link: /guide/what-is-this
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 在 GitHub 中查看
+      link: https://github.com/mcxiaochenn/Action_OKI_KernelSU_SUSFS
 
 features:
   - title: 基于官核
