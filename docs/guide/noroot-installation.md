@@ -90,7 +90,7 @@ fastboot flashing unlock
 
 ## 获取root权限 {#give-root}
 
-时至今日，root管理器五花八门，有什么KernelSU、MKSU、SukiSU-Ultra、Alpha、Apatch等等等，受限篇幅，此处只讲MKSU与Alpha的安装方式
+时至今日，root管理器五花八门，有什么KernelSU、MKSU、SukiSU-Ultra、Alpha、Apatch等等等，受限篇幅，此处只讲[MKSU](#give-mksu-root)与[Alpha](#获取root权限-alpha篇)的安装方式
 
 ## 获取root权限（MKSU篇） {#give-mksu-root}
 
