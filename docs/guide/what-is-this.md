@@ -8,7 +8,7 @@ GKI全名Generic Kernel Image即“通用内核镜像”，是由谷歌为统一
 
 关于GKI的具体详情可以[看这里](https://source.android.google.cn/docs/core/architecture/kernel/generic-kernel-image?hl=zh-cn)
 
-## 为什么我要使用OKI而不是GKI {#whyuseoki}
+## 为什么要使用OKI而不是GKI {#whyuseoki}
 
 由于一加魔改了Boot内核部分代码，导致使用GKI（通用内核镜像）无法正常引导系统，虽然格式化data分区可以解决此问题，但使用GKI会导致失去一加官方线程调度，实际表现通常为功耗或发热异常，高负载下卡顿等等。而使用OKI可以完美解决此问题。
 
@@ -22,4 +22,6 @@ GKI全名Generic Kernel Image即“通用内核镜像”，是由谷歌为统一
 
 ## 讨论 {#discussion}
 
-- QQ群: [安卓root隐藏交流](https://qm.qq.com/cgi-bin/qm/qr?k=Tncp0qgTxddBSogy17jM2C5wPLqNtQpF&jump_from=webapi&authKey=+/7NoQk9GJWAYkMAWjbA45sIsUDdbpPd8+NoEJSiDEoEeAKdIADuvfwwaztVdmU5)
+- QQ群: [安卓root隐藏交流](https://qm.qq.com/cgi-bin/qm/qr?k=Tncp0qgTxddBSogy17jM2C5wPLqNtQpF&jump_from=webapi&authKey=+/7NoQk9GJWAYkMAWjbA45sIsUDdbpPd8+NoEJSiDEoEeAKdIADuvfwwaztVdmU5) 群号：1021796828
+
+- 酷安：[@我不是尘桑](https://www.coolapk.com/u/21508887)

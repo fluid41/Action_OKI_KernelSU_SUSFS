@@ -21,6 +21,10 @@ export default defineConfig({
         text: '在 GitHub 中编辑本页'
     },
 
+    lastUpdated: {
+      text: '最后更新于'
+    },
+
     socialLinks: [
       { icon: 'github', link: 'https://github.com/mcxiaochenn/Action_OKI_KernelSU_SUSFS' }
     ],
