@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Oneplus Kernel Image Build",
-  description: "AOKS official website: https://aoks.mcxiaochen.top",
+  title: "Oneplus Kernel Image",
+  description: "使用GA编译一加KSU分支内核并发布构建",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
