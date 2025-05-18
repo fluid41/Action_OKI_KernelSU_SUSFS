@@ -199,3 +199,6 @@ fastboot reboot
 ![工作中LKM](./pictures/noroot-installation/工作中LKM.jpg)
 
 ### 至此MKSU安装成功
+
+## 获取root权限（Alpha篇）
+咕咕咕......
