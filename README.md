@@ -4,10 +4,13 @@
 
 mksu和ksu-next仓库已合并，后续只更新此仓库
 
+## 教程文档
+
+[阅读文档](https://oki.mcxiaochen.top/)
+
+本文档在收集整理一加相关新手入门教程，欢迎各位提交PR
 
 ## 安装
-
-可[阅读此文档](https://oki.mcxiaochen.top/)
 
 请直接使用[本项目](https://github.com/mcxiaochenn/Action_OKI_KernelSU_SUSFS/releases)的稳定构建
 
