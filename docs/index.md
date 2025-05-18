@@ -8,7 +8,7 @@ hero:
   text: "使用GA编译一加KSU分支内核并发布构建"
   tagline: ""
   image:
-    src: /logo.png
+    src: ./guide/pictures/logo.png
     alt: Oneplus Kernel Image
   actions:
     - theme: brand
