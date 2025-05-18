@@ -36,7 +36,8 @@ export default defineConfig({
           { text: '什么是OKI', link: '/guide/what-is-this' },
           { text: '安装', link: '/guide/installation' },
           { text: '无root安装', link: '/guide/noroot-installation'},
-          { text: '如何构建', link: '/guide/how-to-build'}
+          { text: '如何构建', link: '/guide/how-to-build'},
+          { text: 'ROM 下载', link: '/guide/roms'}
         ]
       }
     ]
