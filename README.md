@@ -7,6 +7,8 @@ mksu和ksu-next仓库已合并，后续只更新此仓库
 
 ## 安装
 
+可[阅读此文档](https://oki.mcxiaochen.top/)
+
 请直接使用[本项目](https://github.com/mcxiaochenn/Action_OKI_KernelSU_SUSFS/releases)的稳定构建
 
 本项目所有镜像均为ak3（[AnyKernel3](https://github.com/Kernel-SU/AnyKernel3)）打包，请自行使用支持的工具刷入使用
