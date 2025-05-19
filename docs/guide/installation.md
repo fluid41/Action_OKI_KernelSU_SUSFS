@@ -55,9 +55,19 @@
 此处不推荐直接删除adb文件夹，部分机型直接删除adb文件夹会导致系统无法启动！！！
 :::
 
-### 大功告成！
+### 真的...大功告成...了吗？ {#are-u-ok-right}
 
 确定你没有[以上问题](#are-u-ok)就可以愉快重启你的手机了，不出意外开机后你的MKSU就会显示GKI运行中了。
+
+当然此时还没结束，你还需要做最后一步，下载并刷入 [**SUSFS-FOR-KERNELSU**](https://github.com/sidex15/susfs4ksu-module) 模块后，再重启一次，当你看到管理器内此模块显示如下图界面，则代表大功告成！
+
+![两个都要下](./pictures/installation/susfs-ksu.jpg)
+
+**鸣谢：XiangYaoKaiXin**或**唐宋元清明** 提供的截图
+
+### 大功告成！
+
+那么恭喜你🎉，你已经成功刷入了带有SUSFS的基于一加官方源码编译的内核了，算是解决了KSU检测到Abnormal Environment这一最大痛点，好好享受玩机带来的乐趣吧！enjoy oneself！🎉
 
 ::: tip
 本章部分文案来自[KernelSU文档](https://kernelsu.org/zh_CN/guide/installation.html)。
