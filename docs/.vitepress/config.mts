@@ -37,6 +37,7 @@ export default defineConfig({
           { text: '安装', link: '/guide/installation' },
           { text: '无root安装', link: '/guide/noroot-installation'},
           { text: '如何构建', link: '/guide/how-to-build'},
+          { text: 'Faq', link: '/guide/Faq'},
           { text: 'ROM 下载', link: '/guide/roms'},
           { text: '赞助', link: '/guide/zanzhu'}
         ]
