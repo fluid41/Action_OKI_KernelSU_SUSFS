@@ -86,6 +86,14 @@ patch -p1 --forward < 10_enable_susfs_for_ksu.patch || true
 patch -p1 --forward < mksu_susfs.patch || true
 patch -p1 --forward < fix.patch || true
 patch -p1 --forward < vfs_fix.patch || true
+
+# 修复 try_umount 未定义的问题 - 简单注释掉有问题的调用
+echo "修复 try_umount 符号问题..."
+if [ -f core_hook.c ] && grep -q "try_umount" core_hook.c; then
+    sed -i 's/^.*try_umount.*$/\/\/ &/' core_hook.c
+    echo "已注释掉 try_umount 相关调用"
+fi
+
 cd ../common || exit 1
 patch -s -p1 < 50_add_susfs_in_gki-${ANDROID_VERSION}-${KERNEL_VERSION}.patch || true
 
