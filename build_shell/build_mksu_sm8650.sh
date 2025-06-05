@@ -27,6 +27,18 @@ SUSFS_VERSION="1.5.7"
 OLD_DIR="$(pwd)"
 KERNEL_WORKSPACE="$OLD_DIR/kernel_platform"
 
+# 克隆SunOS-Project的内核源码
+echo "正在克隆SunOS-Project内核源码..."
+if [ -d "$KERNEL_WORKSPACE" ]; then
+    echo "已存在kernel_platform目录，正在备份..."
+    mv "$KERNEL_WORKSPACE" "${KERNEL_WORKSPACE}_backup_$(date +%Y%m%d%H%M%S)" || true
+fi
+git clone https://github.com/SunOS-Project/android_kernel_oneplus_sm8650.git "$KERNEL_WORKSPACE" --depth 1
+if [ ! -d "$KERNEL_WORKSPACE" ]; then
+    echo "克隆SunOS-Project内核源码失败！"
+    exit 1
+fi
+
 # 配置编译器自然环境
 export CC="clang"
 export CLANG_TRIPLE="aarch64-linux-gnu-"
@@ -41,7 +53,7 @@ BAZEL_ARGS=""
 # 清理旧的保护导出文件
 rm -f "$KERNEL_WORKSPACE/common/android/abi_gki_protected_exports_*" || echo "No protected exports!"
 rm -f "$KERNEL_WORKSPACE/msm-kernel/android/abi_gki_protected_exports_*" || echo "No protected exports!"
-sed -i 's/ -dirty//g' "$KERNEL_WORKSPACE/build/kernel/kleaf/workspace_status_stamp.py"
+sed -i 's/ -dirty//g' "$KERNEL_WORKSPACE/build/kernel/kleaf/workspace_status_stamp.py" || echo "No workspace_status_stamp.py found!"
 
 # 检查完整目录结构
 cd "$KERNEL_WORKSPACE" || exit 1
@@ -85,12 +97,12 @@ patch -p1 < 002-zstd.patch || true
 cd "$KERNEL_WORKSPACE" || exit 1
 
 # 这一步用于修复lz4与zstd 所导致的WiFi 5G失效等一系列问题
-rm common/android/abi_gki_protected_exports_*     
+rm -f common/android/abi_gki_protected_exports_* || echo "No protected exports!"
 
 echo "CONFIG_TMPFS_XATTR=y" >> "$KERNEL_WORKSPACE/common/arch/arm64/configs/gki_defconfig"
 echo "CONFIG_TMPFS_POSIX_ACL=y" >> "$KERNEL_WORKSPACE/common/arch/arm64/configs/gki_defconfig"
 
-sed -i 's/check_defconfig//' "$KERNEL_WORKSPACE/common/build.config.gki"
+sed -i 's/check_defconfig//' "$KERNEL_WORKSPACE/common/build.config.gki" || echo "No build.config.gki found!"
 
 export OPLUS_FEATURES="OPLUS_FEATURE_BSP_DRV_INJECT_TEST=1"
 # 构建内核
